@@ -30,15 +30,19 @@ namespace _xox_app.game
         // run gameControll() for every move
         public abstract void play(int[] indexes);
 
-        
+
         protected void gameControll()
         {
 
             if (step == ((short)GameBoard.getGameBoardSize()))
+            {
+                player1.setState(PlayerStates.draw);
+                player2.setState(PlayerStates.draw);
                 end();
-            if (CheckWin(player1.getSide()))
+            }
+            if (GameBoard.CheckWin(player1.getSide()))
                 end();
-            if (CheckWin(player2.getSide()))
+            if (GameBoard.CheckWin(player2.getSide()))
                 end();
         }
 
@@ -73,13 +77,13 @@ namespace _xox_app.game
         private APlayer checkWinner(ref APlayer player1, ref APlayer player2)
         {
             // state of player1's victory
-            if (CheckWin(player1.getSide()))
+            if (GameBoard.CheckWin(player1.getSide()))
                 player1.setState(PlayerStates.victory);
             else
                 player1.setState(PlayerStates.defeat);
 
             // state of player2's victory
-            if (CheckWin(player2.getSide()))
+            if (GameBoard.CheckWin(player2.getSide()))
                 player2.setState(PlayerStates.victory);
             else
                 player2.setState(PlayerStates.defeat);
@@ -93,43 +97,6 @@ namespace _xox_app.game
             else
                 return null;
         }
-
-
-        // reads gameboard
-        private bool CheckWin(string sign)
-        {
-            // Check rows
-            for (int i = 0; i < 3; i++)
-            {
-                if (GameBoard.getGameBoard()[i, 0] == sign && GameBoard.getGameBoard()[i, 1] == sign && GameBoard.getGameBoard()[i, 2] == sign)
-                {
-                    return true;
-                }
-            }
-
-            // Check columns
-            for (int j = 0; j < 3; j++)
-            {
-                if (GameBoard.getGameBoard()[0, j] == sign && GameBoard.getGameBoard()[1, j] == sign && GameBoard.getGameBoard()[2, j] == sign)
-                {
-                    return true;
-                }
-            }
-
-            // Check diagonals
-            if (GameBoard.getGameBoard()[0, 0] == sign && GameBoard.getGameBoard()[1, 1] == sign && GameBoard.getGameBoard()[2, 2] == sign)
-            {
-                return true;
-            }
-            if (GameBoard.getGameBoard()[0, 2] == sign && GameBoard.getGameBoard()[1, 1] == sign && GameBoard.getGameBoard()[2, 0] == sign)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-
 
 
         public override string ToString()

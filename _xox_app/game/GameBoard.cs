@@ -35,6 +35,40 @@ namespace _xox_app.game
             }
         }
 
+        // reads gameboard
+        public static bool CheckWin(string sign)
+        {
+            // Check rows
+            for (int i = 0; i < 3; i++)
+            {
+                if (GameBoard.getGameBoard()[i, 0] == sign && GameBoard.getGameBoard()[i, 1] == sign && GameBoard.getGameBoard()[i, 2] == sign)
+                {
+                    return true;
+                }
+            }
+
+            // Check columns
+            for (int j = 0; j < 3; j++)
+            {
+                if (GameBoard.getGameBoard()[0, j] == sign && GameBoard.getGameBoard()[1, j] == sign && GameBoard.getGameBoard()[2, j] == sign)
+                {
+                    return true;
+                }
+            }
+
+            // Check diagonals
+            if (GameBoard.getGameBoard()[0, 0] == sign && GameBoard.getGameBoard()[1, 1] == sign && GameBoard.getGameBoard()[2, 2] == sign)
+            {
+                return true;
+            }
+            if (GameBoard.getGameBoard()[0, 2] == sign && GameBoard.getGameBoard()[1, 1] == sign && GameBoard.getGameBoard()[2, 0] == sign)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
 
 
 

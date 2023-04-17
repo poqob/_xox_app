@@ -41,6 +41,7 @@ namespace _xox_app
                 txtbox.Text = defaultTxtBoxTxt;
                 game = new SingleGame("hooman", txtbox.Text, Sides.X);
                 resetUI();
+                startUI();
             }
             else
             {

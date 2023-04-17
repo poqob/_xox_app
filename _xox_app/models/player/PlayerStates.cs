@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace _xox_app.game
 {
-    public enum PlayerStates { victory,defeat,playing}
+    public enum PlayerStates { victory,defeat,draw,playing}
 }   
