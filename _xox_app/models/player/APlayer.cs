@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using _xox_app.game;
+using System;
 
 namespace _xox_app.models.user
 {
     public abstract class APlayer : AUser
     {
-        protected char side;
-        public APlayer(String userName, String userID,char side) : base(userName, userID) { this.side = side; }
-        
-      
-        public char getSide() { return side; }
-        public override string ToString()
+        protected String side;
+        public APlayer(String userName, String userID, Sides side) : base(userName, userID)
+        {
+            this.side = side.ToString();
+        }
+
+        public abstract String makeMove(int[] indexes);
+        public String getSide() { return side; }
+        public override String ToString()
         {
             return "side: " + side + "\n" + base.ToString();
         }
