@@ -16,7 +16,8 @@ namespace _xox_app.game
         //indexes={row,col}
         public static void move(int[] indexes, APlayer player)
         {
-            gameBoard[indexes[0], indexes[1]]=player.getSide();
+
+            gameBoard[indexes[0], indexes[1]] =player.getSide();
         }
 
 

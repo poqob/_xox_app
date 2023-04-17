@@ -9,8 +9,8 @@ namespace _xox_app.game
 {
    public class Game
     {
-        private GameState state;
-        Player player1;
+        private TurnState turn;
+          private Player player1;
         PlayerComputer player2;
         // GameBoard is a static area. ui and Game (class) reads there and acts 
 
@@ -20,14 +20,32 @@ namespace _xox_app.game
             player1 = new Player(playerName,playerID,c);
             player2 = new PlayerComputer(c=='X'?'O':'X');
             whoPlaysFirst();
+            startGame();
+            
+        }
+        private  void startGame()
+        {
+            if (turn == TurnState.turnP2)
+            {
+                //wait for move
+                //player2.makeMove();
+                turn = TurnState.turnP1;
+            }
         }
 
-
-
-
-        public GameState getState()
+        public  void play(int[] indexes)
         {
-            return state;
+            
+                GameBoard.move(indexes,player1);
+                turn = TurnState.turnP2;
+                //GameBoard.move(indexes, player2);
+                turn = TurnState.turnP1;
+            
+        }
+
+        public TurnState getTurn()
+        {
+            return turn;
         }
         private void whoPlaysFirst()
         {
@@ -35,14 +53,14 @@ namespace _xox_app.game
             int num = rnd.Next();
 
             if (num % 2 == 0)
-                state = GameState.turnP1;
+                turn = TurnState.turnP1;
             else
-                state = GameState.turnP2;
+                turn = TurnState.turnP2;
         }
 
         public override string ToString()
         {
-            return "GameState: "+state.ToString()+"\nplayer1: "+player1.ToString()+"\nplayer2: "+player2.ToString();
+            return "GameState: "+turn.ToString()+"\nplayer1: "+player1.ToString()+"\nplayer2: "+player2.ToString();
         }
     }
 }

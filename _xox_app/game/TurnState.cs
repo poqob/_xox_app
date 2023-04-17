@@ -6,5 +6,6 @@ using System.Threading.Tasks;
 
 namespace _xox_app.game
 {
-    public enum GameState { victory,defeat,draw}
-}   
+    // turns
+    public enum TurnState { turnP1,turnP2 }  
+}

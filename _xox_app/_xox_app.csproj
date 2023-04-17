@@ -58,12 +58,14 @@
     <Compile Include="game\Game.cs" />
     <Compile Include="game\GameBoard.cs" />
     <Compile Include="game\GameState.cs" />
+    <Compile Include="game\TurnState.cs" />
     <Compile Include="game\Sides.cs" />
     <Compile Include="models\player\APlayer.cs" />
     <Compile Include="models\player\Player.cs" />
     <Compile Include="models\player\PlayerComputer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="util\InputController.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
