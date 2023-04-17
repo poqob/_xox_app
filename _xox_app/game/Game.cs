@@ -9,31 +9,36 @@ namespace _xox_app.game
         public TurnState turn;
         protected APlayer player1;
         protected APlayer player2;
-        
+
         protected short step;
-        protected GameState state;
+        protected GameStates state;
         // GameBoard is a static area. ui and Game (class) reads there and acts 
 
         public Game(APlayer player1, APlayer player2)
         {
-            state = GameState.playing;
+            state = GameStates.run;
             step = 0;
             this.player1 = player1;
             this.player2 = player2;
             turn = whoPlaysFirst();
             //default board initialize
             GameBoard.startGameBoard(new string[3, 3]);
+            GameBoard.reset();
         }
 
         //increment the step value here
         // run gameControll() for every move
         public abstract void play(int[] indexes);
 
-
+        
         protected void gameControll()
         {
-            
+
             if (step == ((short)GameBoard.getGameBoardSize()))
+                end();
+            if (CheckWin(player1.getSide()))
+                end();
+            if (CheckWin(player2.getSide()))
                 end();
         }
 
@@ -53,39 +58,44 @@ namespace _xox_app.game
                 return TurnState.turnP2;
         }
 
-
+        //TODO: controll board situation via .dll file
         private void end()
         {
-            // controll board situation via .dll file
-            winner = checkWinner(ref player1, ref player2);
+
+            state = GameStates.stop;
+            /// send board data to xOxTEST
         }
 
-        public APlayer getWinner() { return checkWinner(ref  player1, ref  player2); }
+        // returns winner.
+        public APlayer getWinner() { return checkWinner(ref player1, ref player2); }
 
+        // checks and returns winner player.
         private APlayer checkWinner(ref APlayer player1, ref APlayer player2)
         {
             // state of player1's victory
             if (CheckWin(player1.getSide()))
-                player1.setState(GameState.victory);
+                player1.setState(PlayerStates.victory);
             else
-                player1.setState(GameState.defeat);
+                player1.setState(PlayerStates.defeat);
 
             // state of player2's victory
             if (CheckWin(player2.getSide()))
-                player2.setState(GameState.victory);
+                player2.setState(PlayerStates.victory);
             else
-                player2.setState(GameState.defeat);
+                player2.setState(PlayerStates.defeat);
 
 
             //return winner
-            if (player1.getState() == GameState.victory)
+            if (player1.getState() == PlayerStates.victory)
                 return player1;
-            else if (player2.getState() == GameState.victory)
+            else if (player2.getState() == PlayerStates.victory)
                 return player2;
             else
                 return null;
         }
 
+
+        // reads gameboard
         private bool CheckWin(string sign)
         {
             // Check rows

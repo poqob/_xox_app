@@ -17,7 +17,7 @@ namespace _xox_app.game
 
         public override void play(int[] indexes)
         {
-            if (state == GameState.playing)
+            if (state == GameStates.run)
             {
                 if (turn == TurnState.turnP1)
                 {

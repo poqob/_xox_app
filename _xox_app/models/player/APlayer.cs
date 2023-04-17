@@ -7,16 +7,17 @@ namespace _xox_app.models.user
     {
         protected String side;
 
-        protected GameState state;
+        protected PlayerStates state;
         public APlayer(String userName, String userID, Sides side) : base(userName, userID)
         {
             this.side = side.ToString();
         }
 
-        
+      
+
         public abstract String makeMove(int[] indexes);
-        public void setState(GameState state) { this.state = state; }
-        public GameState getState() {return state;}
+        public void setState(PlayerStates state) { this.state = state; }
+        public PlayerStates getState() { return state; }
         public String getSide() { return side; }
         public override String ToString()
         {

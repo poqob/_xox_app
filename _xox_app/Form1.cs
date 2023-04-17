@@ -17,6 +17,7 @@ namespace _xox_app
         public Form1()
         {
             InitializeComponent();
+            startUI();
             txtbox.Text = defaultTxtBoxTxt;
         }
 
@@ -38,6 +39,8 @@ namespace _xox_app
                 StartResetButton.Enabled = false;
                 txtbox.Enabled = true;
                 txtbox.Text = defaultTxtBoxTxt;
+                game = new SingleGame("hooman", txtbox.Text, Sides.X);
+                resetUI();
             }
             else
             {
@@ -45,7 +48,8 @@ namespace _xox_app
                 txtbox.Enabled = false;
                 game = new SingleGame("hooman", txtbox.Text, Sides.X);
                 ScoreResult.Text = game.turn.ToString();
-
+                
+             
             }
         }
 
@@ -109,6 +113,58 @@ namespace _xox_app
             btn9.Text = makeMove(coordinates);
         }
 
+        private void resetUI()
+        {
+            // reset texts
+            btn1.Text = "";
+            btn2.Text = "";
+            btn3.Text = "";
+            btn4.Text = "";
+            btn5.Text = "";
+            btn6.Text = "";
+            btn7.Text = "";
+            btn8.Text = "";
+            btn9.Text = "";
+
+            // clickable false
+            btn1.Enabled = false;
+            btn2.Enabled = false;
+            btn3.Enabled = false;
+            btn4.Enabled = false;
+            btn5.Enabled = false;
+            btn6.Enabled = false;
+            btn7.Enabled = false;
+            btn8.Enabled = false;
+            btn9.Enabled = false;
+
+        }
+
+        private void startUI()
+        {
+
+            // reset texts
+            btn1.Text = "";
+            btn2.Text = "";
+            btn3.Text = "";
+            btn4.Text = "";
+            btn5.Text = "";
+            btn6.Text = "";
+            btn7.Text = "";
+            btn8.Text = "";
+            btn9.Text = "";
+
+            // clickable true
+            btn1.Enabled = true;
+            btn2.Enabled = true;
+            btn3.Enabled = true;
+            btn4.Enabled = true;
+            btn5.Enabled = true;
+            btn6.Enabled = true;
+            btn7.Enabled = true;
+            btn8.Enabled = true;
+            btn9.Enabled = true;
+
+        }
 
 
     }
