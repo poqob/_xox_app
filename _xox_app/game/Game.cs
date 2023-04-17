@@ -7,57 +7,69 @@ using System.Threading.Tasks;
 
 namespace _xox_app.game
 {
-   public class Game
+   public abstract class Game
     {
-        private TurnState turn;
-          private Player player1;
-        PlayerComputer player2;
+        public TurnState turn;
+        protected APlayer player1;
+        protected APlayer player2;
+        protected short step;
+        protected GameState state;
         // GameBoard is a static area. ui and Game (class) reads there and acts 
 
-        public Game(String playerName,String playerID,Sides side)
+        public Game(APlayer player1, APlayer player2)
         {
-            char c = side.ToString().First();
-            player1 = new Player(playerName,playerID,c);
-            player2 = new PlayerComputer(c=='X'?'O':'X');
-            whoPlaysFirst();
-            startGame();
-        }
-        private  void startGame()
-        {
-            if (turn == TurnState.turnP2)
-            {
-                //wait for move
-                //player2.makeMove();
-                turn = TurnState.turnP1;
-            }
+            state = GameState.playing;
+            step = 0;
+            this.player1 = player1;
+            this.player2 = player2;
+            turn= whoPlaysFirst();
+            //default board initialize
+            GameBoard.startGameBoard(new string[3,3]);
         }
 
-        public  String play(int[] indexes)
+        //increment the step value here
+        // run gameControll() for every move
+        public abstract void play(int[] indexes);
+        /*
         {
             if (turn == TurnState.turnP1)
             {
+                // do something
+                player1.makeMove(indexes);
                 turn = TurnState.turnP2;
-                return GameBoard.move(indexes, player1);
             }
+            //turnp2 situation
             else {
+                //do something
+                player2.makeMove(indexes);
                 turn = TurnState.turnP1;
-                return GameBoard.move(indexes, player2);
             } 
         }
+        */
 
-        public TurnState getTurn()
+        protected void gameControll() {
+            if (step == ((short)GameBoard.getGameBoardSize()))
+                end();
+        }
+
+        private void end()
+        {
+            // controll board situation via .dll file
+        }
+
+        protected TurnState getTurn()
         {
             return turn;
         }
-        private void whoPlaysFirst()
+        private TurnState whoPlaysFirst()
         {
             Random rnd = new Random();
             int num = rnd.Next();
 
             if (num % 2 == 0)
-                turn = TurnState.turnP1;
+                return TurnState.turnP1;
             else
-                turn = TurnState.turnP2;
+                return TurnState.turnP2;
         }
 
         public override string ToString()

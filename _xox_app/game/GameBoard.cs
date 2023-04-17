@@ -7,16 +7,19 @@ namespace _xox_app.game
     public static class GameBoard
     {
         // definition of gameBoard
-        private static char[,] gameBoard = new char[3, 3];
+        private static string[,] gameBoard = new string[3, 3];
+
+        public static void startGameBoard(string[,] board) { gameBoard = board; }
+
+        public static int getGameBoardSize() { return gameBoard.Length; }
 
         //get board
-        public static char[,] getGameBoard() { return gameBoard; }
+        public static string[,] getGameBoard() { return gameBoard; }
 
         // make move
         //indexes={row,col}
         public static string  move(int[] indexes, APlayer player)
         {
-            
             gameBoard[indexes[0], indexes[1]] =player.getSide();
             return player.getSide().ToString();
         }
