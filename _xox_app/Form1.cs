@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using testScript;
+using _xox_app.game;
 
 namespace _xox_app
 {
@@ -21,7 +22,8 @@ namespace _xox_app
         private void button1_Click(object sender, EventArgs e)
         {
             testScript.testClass tt = new testClass();
-            
+            Game newGame = new Game("name","number",Sides.X);
+            this.button1.Text = newGame.ToString();
         }
     }
 }

@@ -55,9 +55,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="models\user\APlayer.cs" />
-    <Compile Include="models\user\Player.cs" />
-    <Compile Include="models\user\PlayerComputer.cs" />
+    <Compile Include="game\Game.cs" />
+    <Compile Include="game\GameBoard.cs" />
+    <Compile Include="game\GameState.cs" />
+    <Compile Include="game\Sides.cs" />
+    <Compile Include="models\player\APlayer.cs" />
+    <Compile Include="models\player\Player.cs" />
+    <Compile Include="models\player\PlayerComputer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

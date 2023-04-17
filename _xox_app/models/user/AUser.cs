@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _xox_app
 {
-    abstract class AUser
+    public abstract class AUser
     {
         private String userName;
         private String userID;
@@ -16,6 +16,11 @@ namespace _xox_app
         {
             this.userID = userID;
             this.userName = userName;
+        }
+
+        public override string ToString()
+        {
+            return "name: " + userName + "\nID: " + userID + "\n";
         }
     }
 }

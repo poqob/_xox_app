@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace _xox_app.models.user
 {
-    abstract class APlayer : AUser
+    public abstract class APlayer : AUser
     {
-        private char side;
+        protected char side;
         public APlayer(String userName, String userID,char side) : base(userName, userID) { this.side = side; }
-
+        abstract public char getSide();
         abstract public void makeMove();
+
+        public override string ToString()
+        {
+            return "side: " + side + "\n" + base.ToString();
+        }
     }
 }
