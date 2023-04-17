@@ -52,6 +52,7 @@ namespace _xox_app
         private string makeMove(int[] indexes)
         {
             game.play(indexes);
+            ScoreResult.Text = game.getWinner()!=null?game.getWinner().ToString():"non";
             return GameBoard.getGameBoard()[indexes[0], indexes[1]];
         }
 

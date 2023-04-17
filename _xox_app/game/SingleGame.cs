@@ -9,9 +9,10 @@ namespace _xox_app.game
 {
     class SingleGame : Game
     {
-        
-        public SingleGame(String playerName, String playerID,Sides side) :base(new Player(playerName,playerID,side),new PlayerComputer(side==Sides.X?Sides.O:side)){
-        
+
+        public SingleGame(String playerName, String playerID, Sides side) : base(new Player(playerName, playerID, side), new PlayerComputer(side == Sides.X ? Sides.O : side))
+        {
+
         }
 
         public override void play(int[] indexes)

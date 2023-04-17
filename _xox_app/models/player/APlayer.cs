@@ -6,12 +6,17 @@ namespace _xox_app.models.user
     public abstract class APlayer : AUser
     {
         protected String side;
+
+        protected GameState state;
         public APlayer(String userName, String userID, Sides side) : base(userName, userID)
         {
             this.side = side.ToString();
         }
 
+        
         public abstract String makeMove(int[] indexes);
+        public void setState(GameState state) { this.state = state; }
+        public GameState getState() {return state;}
         public String getSide() { return side; }
         public override String ToString()
         {

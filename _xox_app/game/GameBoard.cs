@@ -7,7 +7,7 @@ namespace _xox_app.game
     public static class GameBoard
     {
         // definition of gameBoard
-        private static string[,] gameBoard = new string[3, 3];
+        private static string[,] gameBoard;
 
         public static void startGameBoard(string[,] board) { gameBoard = board; }
 

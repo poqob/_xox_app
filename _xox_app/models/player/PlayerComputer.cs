@@ -20,6 +20,7 @@ namespace _xox_app.models.user
         public override string makeMove(int[] indexes)
         {
 
+            //compute board and generate propper indexes to do propper moves.
 
 
 
