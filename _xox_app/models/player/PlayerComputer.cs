@@ -16,10 +16,7 @@ namespace _xox_app.models.user
 
         private void computeBoard() { }
 
-        public override void makeMove()
-        {
-            throw new NotImplementedException();
-        }
+      
 
 
 

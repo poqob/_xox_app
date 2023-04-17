@@ -48,131 +48,62 @@ namespace _xox_app
             }
         }
 
-        private void makeMove(int[] indexes)
+        private String makeMove(int[] indexes)
         {
-            game.play(indexes);
+            return game.play(indexes);
         }
 
         private void btn1_Click(object sender, EventArgs e)
         {
             int[] coordinates = new int[]{0,0};
-            makeMove(coordinates);
-            char c = GameBoard.getGameBoard()[coordinates[0], coordinates[1]];
-            if (c == ((char)Sides.X))
-                btn1.Text = "X";
-            else if (c == ((char)Sides.O))
-                btn1.Text = "O";
-            else
-            btn1.Text = "-";
-          
+            btn1.Text=makeMove(coordinates);
         }
 
         private void btn2_Click(object sender, EventArgs e)
         {
             int[] coordinates = new int[] { 0, 1 };
-            makeMove(coordinates);
-            char c = GameBoard.getGameBoard()[coordinates[0], coordinates[1]];
-            if (c == ((char)Sides.X))
-                btn1.Text = "X";
-            else if (c == ((char)Sides.O))
-                btn1.Text = "O";
-            else
-                btn1.Text = "-";
+            btn2.Text = makeMove(coordinates);
         }
         private void btn3_Click(object sender, EventArgs e)
         {
             int[] coordinates = new int[] { 0, 2 };
             makeMove(coordinates);
             char c = GameBoard.getGameBoard()[coordinates[0], coordinates[1]];
-            if (c == ((char)Sides.X))
-                btn1.Text = "X";
-            else if (c == ((char)Sides.O))
-                btn1.Text = "O";
-            else
-                btn1.Text = "-";
+            btn3.Text = makeMove(coordinates);
         }
         private void btn4_Click(object sender, EventArgs e)
         {
             int[] coordinates = new int[] { 1, 0 };
             makeMove(coordinates);
-            char c = GameBoard.getGameBoard()[coordinates[0], coordinates[1]];
-            if (c == ((char)Sides.X))
-                btn1.Text = "X";
-            else if (c == ((char)Sides.O))
-                btn1.Text = "O";
-            else
-                btn1.Text = "-";
+            btn4.Text = makeMove(coordinates);
         }
         private void btn5_Click(object sender, EventArgs e)
         {
             int[] coordinates = new int[] { 1, 1 };
-            makeMove(coordinates);
-            char c = GameBoard.getGameBoard()[coordinates[0], coordinates[1]];
-            if (c == ((char)Sides.X))
-                btn1.Text = "X";
-            else if (c == ((char)Sides.O))
-                btn1.Text = "O";
-            else
-                btn1.Text = "-";
+            btn5.Text = makeMove(coordinates);
         }
-
-
-
-
-
-
-
-
 
         private void btn6_Click(object sender, EventArgs e)
         {
             int[] coordinates = new int[] { 1, 2 };
-            makeMove(coordinates);
-            char c = GameBoard.getGameBoard()[coordinates[0], coordinates[1]];
-            if (c == ((char)Sides.X))
-                btn1.Text = "X";
-            else if (c == ((char)Sides.O))
-                btn1.Text = "O";
-            else
-                btn1.Text = "-";
+            btn6.Text = makeMove(coordinates);
         }
 
         private void btn7_Click(object sender, EventArgs e)
         {
             int[] coordinates = new int[] { 2, 0 };
-            makeMove(coordinates);
-            char c = GameBoard.getGameBoard()[coordinates[0], coordinates[1]];
-            if (c == ((char)Sides.X))
-                btn1.Text = "X";
-            else if (c == ((char)Sides.O))
-                btn1.Text = "O";
-            else
-                btn1.Text = "-";
+            btn7.Text = makeMove(coordinates);
         }
         private void btn8_Click(object sender, EventArgs e)
         {
             int[] coordinates = new int[] { 2, 1 };
-            makeMove(coordinates);
-            char c = GameBoard.getGameBoard()[coordinates[0], coordinates[1]];
-            if (c == ((char)Sides.X))
-                btn1.Text = "X";
-            else if (c == ((char)Sides.O))
-                btn1.Text = "O";
-            else
-                btn1.Text = "-";
+            btn8.Text = makeMove(coordinates);
         }
 
         private void btn9_Click(object sender, EventArgs e)
         {
             int[] coordinates = new int[] { 2, 2 };
-            makeMove(coordinates);
-            char c = GameBoard.getGameBoard()[coordinates[0], coordinates[1]];
-            if (c == ((char)Sides.X))
-                btn1.Text = "X";
-            else if (c == ((char)Sides.O))
-                btn1.Text = "O";
-            else
-                btn1.Text = "-";
+            btn9.Text = makeMove(coordinates);
         }
 
 

@@ -21,7 +21,6 @@ namespace _xox_app.game
             player2 = new PlayerComputer(c=='X'?'O':'X');
             whoPlaysFirst();
             startGame();
-            
         }
         private  void startGame()
         {
@@ -33,14 +32,17 @@ namespace _xox_app.game
             }
         }
 
-        public  void play(int[] indexes)
+        public  String play(int[] indexes)
         {
-            
-                GameBoard.move(indexes,player1);
+            if (turn == TurnState.turnP1)
+            {
                 turn = TurnState.turnP2;
-                //GameBoard.move(indexes, player2);
+                return GameBoard.move(indexes, player1);
+            }
+            else {
                 turn = TurnState.turnP1;
-            
+                return GameBoard.move(indexes, player2);
+            } 
         }
 
         public TurnState getTurn()

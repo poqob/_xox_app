@@ -15,11 +15,7 @@ namespace _xox_app.models.user
         }
 
 
-        public override void makeMove()
-        {
-            throw new NotImplementedException();
-        }
-
+     
         
 
         

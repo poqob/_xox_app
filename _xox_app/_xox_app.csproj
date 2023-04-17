@@ -58,6 +58,7 @@
     <Compile Include="game\Game.cs" />
     <Compile Include="game\GameBoard.cs" />
     <Compile Include="game\GameState.cs" />
+    <Compile Include="game\SingleGame.cs" />
     <Compile Include="game\TurnState.cs" />
     <Compile Include="game\Sides.cs" />
     <Compile Include="models\player\APlayer.cs" />

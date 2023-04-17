@@ -14,10 +14,11 @@ namespace _xox_app.game
 
         // make move
         //indexes={row,col}
-        public static void move(int[] indexes, APlayer player)
+        public static string  move(int[] indexes, APlayer player)
         {
-
+            
             gameBoard[indexes[0], indexes[1]] =player.getSide();
+            return player.getSide().ToString();
         }
 
 
