@@ -43,20 +43,22 @@ namespace _xox_app
             {
                 StartResetButton.Text = "RESET GAME";
                 txtbox.Enabled = false;
-                game = new Game("hooman", txtbox.Text, Sides.X);
+                game = new SingleGame("hooman", txtbox.Text, Sides.X);
+                ScoreResult.Text = game.turn.ToString();
 
             }
         }
 
-        private String makeMove(int[] indexes)
+        private string makeMove(int[] indexes)
         {
-            return game.play(indexes);
+            game.play(indexes);
+            return GameBoard.getGameBoard()[indexes[0], indexes[1]];
         }
 
         private void btn1_Click(object sender, EventArgs e)
         {
-            int[] coordinates = new int[]{0,0};
-            btn1.Text=makeMove(coordinates);
+            int[] coordinates = new int[] { 0, 0 };
+            btn1.Text = makeMove(coordinates);
         }
 
         private void btn2_Click(object sender, EventArgs e)
@@ -67,14 +69,14 @@ namespace _xox_app
         private void btn3_Click(object sender, EventArgs e)
         {
             int[] coordinates = new int[] { 0, 2 };
-            makeMove(coordinates);
-            char c = GameBoard.getGameBoard()[coordinates[0], coordinates[1]];
+
+
             btn3.Text = makeMove(coordinates);
         }
         private void btn4_Click(object sender, EventArgs e)
         {
             int[] coordinates = new int[] { 1, 0 };
-            makeMove(coordinates);
+
             btn4.Text = makeMove(coordinates);
         }
         private void btn5_Click(object sender, EventArgs e)
